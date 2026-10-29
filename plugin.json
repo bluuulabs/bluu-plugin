@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "description": "Your money in Bluu from your AI assistant: spending, budgets, goals, shared expenses and net worth. Bluu keeps the books; it never moves money.",
   "author": {
-    "name": "Nicolay Cortés",
+    "name": "Nicolay Cortez",
     "email": "hello@bluulabs.com",
     "url": "https://bluulabs.com"
   },
@@ -18,7 +18,7 @@
         "displayName": "Bluu",
         "shortDescription": "Your money, from the chat",
         "longDescription": "Bluu is a personal finance app that keeps your books: what you spend and earn, what you owe and are owed, what you are saving toward and what you own. With the Bluu plugin you can ask about your money and record it without leaving the chat.\n\nWhat you can do:\n- Ask how much you spent and on what, how your budgets and goals are doing, what is due next, and your net worth per currency.\n- Record expenses, income and moves between your spaces. Bluu shows what it is about to save and waits for your yes.\n- Share a bank statement, receipt or screenshot: the assistant reads its transactions, checks them against Bluu, leaves out the ones already there and proposes each one with your own categories.\n- Split a bill with other people, record who paid whom back and get the link to send each person.\n- Plan budgets, savings goals, payment reminders and subscriptions, and see when you reach a goal by saving an amount each month.\n\nWhat Bluu does not do: it never moves money, makes payments or connects to your bank on its own, and it does not recommend investments or products. It shows what is there and compares only with your own history and targets. Nothing is saved without your confirmation.\n\nRequires a Bluu account. Totals are reported per currency and never added across currencies.",
-        "developerName": "Nicolay Cortés",
+        "developerName": "Nicolay Cortez",
         "category": "Finance",
         "capabilities": [
           "Read spending, budgets, goals and net worth",
