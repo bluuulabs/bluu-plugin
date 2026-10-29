@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "bluu": {
+      "type": "http",
+      "url": "https://api.bluulabs.com/api/v1/mcp"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "bluu",
+  "owner": {
+    "name": "Nicolay Cortés",
+    "email": "hello@bluulabs.com"
+  },
+  "metadata": {
+    "description": "Bluu for Claude Code: your money, from the chat."
+  },
+  "plugins": [
+    {
+      "name": "bluu",
+      "source": "./",
+      "description": "Spending, budgets, goals, shared expenses and net worth in Bluu. Bluu keeps the books; it never moves money.",
+      "category": "finance"
+    }
+  ]
+}

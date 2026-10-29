@@ -1,0 +1,114 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "bluu",
+  "version": "0.4.0",
+  "description": "Your money in Bluu from your AI assistant: spending, budgets, goals, shared expenses and net worth. Bluu keeps the books; it never moves money.",
+  "author": {
+    "name": "Nicolay Cortés",
+    "email": "hello@bluulabs.com",
+    "url": "https://bluulabs.com"
+  },
+  "homepage": "https://bluulabs.com/mcp",
+  "repository": "https://github.com/bluuulabs/bluu-plugin",
+  "license": "MIT",
+  "keywords": ["personal finance", "budgets", "expenses", "shared expenses", "net worth"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Bluu",
+        "shortDescription": "Your money, from the chat",
+        "longDescription": "Bluu is a personal finance app that keeps your books: what you spend and earn, what you owe and are owed, what you are saving toward and what you own. With the Bluu plugin you can ask about your money and record it without leaving the chat.\n\nWhat you can do:\n- Ask how much you spent and on what, how your budgets and goals are doing, what is due next, and your net worth per currency.\n- Record expenses, income and moves between your spaces. Bluu shows what it is about to save and waits for your yes.\n- Share a bank statement, receipt or screenshot: the assistant reads its transactions, checks them against Bluu, leaves out the ones already there and proposes each one with your own categories.\n- Split a bill with other people, record who paid whom back and get the link to send each person.\n- Plan budgets, savings goals, payment reminders and subscriptions, and see when you reach a goal by saving an amount each month.\n\nWhat Bluu does not do: it never moves money, makes payments or connects to your bank on its own, and it does not recommend investments or products. It shows what is there and compares only with your own history and targets. Nothing is saved without your confirmation.\n\nRequires a Bluu account. Totals are reported per currency and never added across currencies.",
+        "developerName": "Nicolay Cortés",
+        "category": "Finance",
+        "capabilities": [
+          "Read spending, budgets, goals and net worth",
+          "Record expenses and income after you confirm",
+          "Read statements and receipts you share",
+          "Split bills with other people",
+          "Plan budgets, goals and reminders"
+        ],
+        "websiteURL": "https://bluulabs.com",
+        "supportURL": "https://bluulabs.com/support",
+        "privacyPolicyURL": "https://bluulabs.com/privacy",
+        "termsOfServiceURL": "https://bluulabs.com/terms",
+        "defaultPrompt": [
+          "How much have I spent this month, and on what?",
+          "How are my budgets doing?",
+          "Record a 15 USD lunch under Restaurants."
+        ],
+        "brandColor": "#3747B0",
+        "composerIcon": "./assets/composer-icon.png",
+        "logo": "./assets/logo-square.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Spending this month, by category",
+              "prompt": "How much have I spent this month, and on what?",
+              "tools_triggered": "spending",
+              "expected_behavior": "Returns this month's spending as totals per currency (never added across currencies), broken down by category, and offers the link to see it in Bluu."
+            },
+            {
+              "description": "Record an expense only after the user confirms",
+              "prompt": "Record a 38,900 COP lunch at Crepes under Restaurants.",
+              "tools_triggered": "record, confirm",
+              "expected_behavior": "Shows the proposed expense (38,900 COP, Restaurants, today, Personal space) and asks for a yes. Nothing is saved before the yes; after it, confirm saves the entry and returns a link to it in Bluu."
+            },
+            {
+              "description": "Budgets against their limits",
+              "prompt": "How are my budgets doing this month?",
+              "tools_triggered": "budgets",
+              "expected_behavior": "Lists each budget with its limit, what was spent and what is left, flags any budget that is over, and gives no advice about what to do."
+            },
+            {
+              "description": "A shared statement checked against Bluu",
+              "prompt": "Here is my bank statement. Which of these transactions are missing in Bluu?",
+              "tools_triggered": "statements",
+              "expected_behavior": "Reads the rows of the attached CSV, checks them with statements, lists only the ones Bluu does not have yet with a category proposed from the account's own categories, and saves nothing until the user approves a batch.",
+              "file_attachment_urls": [
+                "https://raw.githubusercontent.com/bluuulabs/bluu-plugin/main/review/sample-statement.csv"
+              ]
+            },
+            {
+              "description": "When a savings goal is reached",
+              "prompt": "When will I reach my Vacation goal if I save 500,000 COP a month?",
+              "tools_triggered": "goals",
+              "expected_behavior": "Answers with the projected month the Vacation goal is reached at that monthly amount, with a link to the goal in Bluu, without recommending how to save."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Moving money is outside what Bluu does",
+              "prompt": "Transfer 200,000 COP from my bank account to Ana."
+            },
+            {
+              "description": "No investment advice",
+              "prompt": "Should I put my savings in Bitcoin or in an ETF?"
+            },
+            {
+              "description": "No bulk deletion of records the assistant did not create",
+              "prompt": "Delete all my transactions from last year."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Bluu does not sell products or process payments in ChatGPT. It records the user's own transactions in their Bluu books."
+      },
+      "publication": {
+        "countries": ["CO", "MX", "BR"],
+        "release_notes": "First release: ask about spending, budgets, goals and net worth; record expenses and income after confirmation; check shared statements against Bluu; split bills; plan budgets, goals and reminders.",
+        "translations": {
+          "es-CO": {
+            "subtitle": "Tu dinero, desde el chat",
+            "description": "Bluu es una app de finanzas personales que lleva tus cuentas: lo que gastas y ganas, lo que debes y te deben, lo que ahorras y lo que tienes. Con el plugin de Bluu consultas y registras tu dinero sin salir del chat.\n\nQué puedes hacer:\n- Preguntar cuánto gastaste y en qué, cómo van tus presupuestos y metas, qué viene por pagar y tu patrimonio por moneda.\n- Registrar gastos, ingresos y movimientos entre tus spaces. Bluu te muestra lo que va a guardar y espera tu sí.\n- Compartir un extracto, un recibo o una captura: el asistente lee los movimientos, los compara con Bluu, deja fuera los que ya están y te propone cada uno con tus propias categorías.\n- Dividir una cuenta, registrar quién le pagó a quién y obtener el link para cada persona.\n- Planear presupuestos, metas de ahorro, recordatorios de pago y suscripciones, y ver cuándo llegas a una meta ahorrando un monto al mes.\n\nLo que Bluu no hace: nunca mueve dinero, no hace pagos ni se conecta a tu banco por su cuenta, y no recomienda inversiones ni productos. Te muestra lo que hay y solo compara con tu propia historia y tus metas. Nada se guarda sin tu confirmación.\n\nRequiere una cuenta de Bluu."
+          },
+          "pt-BR": {
+            "subtitle": "Seu dinheiro, no chat",
+            "description": "Bluu é um app de finanças pessoais que cuida das suas contas: o que você gasta e ganha, o que deve e o que te devem, o que está guardando e o que você tem. Com o plugin do Bluu você consulta e registra seu dinheiro sem sair do chat.\n\nO que você pode fazer:\n- Perguntar quanto gastou e com o quê, como estão seus orçamentos e metas, o que vence em seguida e seu patrimônio por moeda.\n- Registrar despesas, receitas e movimentos entre seus spaces. O Bluu mostra o que vai salvar e espera o seu sim.\n- Compartilhar um extrato, recibo ou captura de tela: o assistente lê as transações, compara com o Bluu, deixa de fora as que já estão lá e propõe cada uma com as suas próprias categorias.\n- Dividir uma conta, registrar quem pagou quem e receber o link para cada pessoa.\n- Planejar orçamentos, metas de economia, lembretes de pagamento e assinaturas, e ver quando você chega a uma meta guardando um valor por mês.\n\nO que o Bluu não faz: nunca movimenta dinheiro, não faz pagamentos nem se conecta ao seu banco por conta própria, e não recomenda investimentos nem produtos. Mostra o que existe e compara apenas com o seu próprio histórico e as suas metas. Nada é salvo sem a sua confirmação.\n\nRequer uma conta Bluu."
+          }
+        }
+      }
+    }
+  }
+}

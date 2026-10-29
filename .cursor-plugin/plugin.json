@@ -1,0 +1,24 @@
+{
+  "name": "bluu",
+  "version": "0.4.0",
+  "description": "Your money in Bluu from Cursor and Grok Bot: spending, budgets, goals, shared expenses and net worth. Bluu keeps the books; it never moves money.",
+  "author": {
+    "name": "Nicolay Cortés",
+    "email": "hello@bluulabs.com"
+  },
+  "homepage": "https://bluulabs.com/mcp",
+  "repository": "https://github.com/bluuulabs/bluu-plugin",
+  "license": "MIT",
+  "keywords": ["personal finance", "budgets", "expenses", "shared expenses", "net worth"],
+  "logo": "assets/logo.png",
+  "skills": "./skills/",
+  "mcpServers": {
+    "bluu": {
+      "url": "https://api.bluulabs.com/api/v1/mcp",
+      "auth": {
+        "CLIENT_ID": "bluu-mcp",
+        "scopes": ["bluu:read", "bluu:write"]
+      }
+    }
+  }
+}
