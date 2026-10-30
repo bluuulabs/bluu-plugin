@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "bluu",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Your money in Bluu from your AI assistant: spending, budgets, goals, shared expenses and net worth. Bluu keeps the books; it never moves money.",
   "author": {
     "name": "Nicolay Cortez",
@@ -34,7 +34,7 @@
         "defaultPrompt": [
           "How much have I spent this month, and on what?",
           "How are my budgets doing?",
-          "Record a 15 USD lunch under Restaurants."
+          "Record a 15 USD lunch under Food."
         ],
         "brandColor": "#3747B0",
         "composerIcon": "./assets/composer-icon.png",
@@ -51,9 +51,9 @@
             },
             {
               "description": "Record an expense only after the user confirms",
-              "prompt": "Record a 38,900 COP lunch at Crepes under Restaurants.",
+              "prompt": "Record a 38,900 COP lunch at Crepes under Food.",
               "tools_triggered": "record, confirm",
-              "expected_behavior": "Shows the proposed expense (38,900 COP, Restaurants, today, Personal space) and asks for a yes. Nothing is saved before the yes; after it, confirm saves the entry and returns a link to it in Bluu."
+              "expected_behavior": "Shows the proposed expense (38,900 COP, Food, today, Personal space) and asks for a yes. Nothing is saved before the yes; after it, confirm saves the entry and returns a link to it in Bluu."
             },
             {
               "description": "Budgets against their limits",
