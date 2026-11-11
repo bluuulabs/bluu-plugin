@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "bluu",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Your money in Bluu from your AI assistant: spending, budgets, goals, shared expenses and net worth. Bluu keeps the books; it never moves money.",
   "author": {
     "name": "Nicolay Cortez",

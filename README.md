@@ -36,6 +36,7 @@ Step-by-step instructions, in Spanish and English: [bluulabs.com/mcp](https://bl
 | `month-in-review` | A month: in and out, top categories, budgets, goals |
 | `split-a-bill` | Splits a bill and returns a link per person |
 | `record-from-a-file` | Records the movements of a statement or receipt you share |
+| `investment-questions` | Answers "what should I invest in?" with your holdings, never with advice |
 
 ## Layout
 
