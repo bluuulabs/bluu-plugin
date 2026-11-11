@@ -26,6 +26,7 @@ Step-by-step instructions, in Spanish and English: [bluulabs.com/mcp](https://bl
 - **Statements and receipts:** share a file in the chat; the assistant checks its rows against Bluu and proposes the missing ones with your own categories.
 - **Split bills:** share an expense with other people and get a link for each of them.
 - **Plan:** budgets, savings goals, reminders and subscriptions.
+- **Investments:** record the stocks, funds, CDTs or crypto you bought or sold and the dividends you received; see your holdings with their average cost.
 
 ### Skills
 
