@@ -73,9 +73,9 @@
             },
             {
               "description": "Record an investment the user already held, only after the user confirms",
-              "prompt": "I already owned 10 units of VOO before using Bluu, bought at 480 USD each. Add them to Bluu.",
+              "prompt": "I already owned 10 units of the VOO ETF before using Bluu, bought at 480 USD each. Add them to Bluu.",
               "tools_triggered": "invest, confirm",
-              "expected_behavior": "Shows the proposed holding (10 VOO at 480 USD each, already owned, so no account is charged) and asks for a yes. Nothing is saved before the yes; after it, confirm saves it and wealth lists VOO among the holdings with its average cost. It does not comment on whether VOO is a good investment."
+              "expected_behavior": "Shows the proposed holding (10 VOO, an ETF, at 480 USD each, already owned, so no account is charged) and asks for a yes. If the type of asset is missing, it asks for it instead of guessing. Nothing is saved before the yes; after it, confirm saves it and wealth lists VOO among the holdings with its average cost. It does not comment on whether VOO is a good investment."
             }
           ],
           "negative": [
